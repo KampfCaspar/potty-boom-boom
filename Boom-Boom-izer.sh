@@ -8,13 +8,17 @@ echo "##########################"
 echo "01 - Installing Packages we need"
 
 # Package installations
-apt update && apt -y install omxplayer i3 lightdm youtube-dl
+apt update && apt -y install omxplayer i3 lightdm
 if [ $? -ne 0 ] ; then
 	echo " - BOOM - There was a Boom Boom problem with Boom Boom package installation."
 	echo " - BOOM - Do you have an Network/Internet connection?"
 	echo " - BOOM - Please start the Boom-Boom-izer.sh again when your Boom Boom InternetZ is working"
 	exit 42
 fi
+
+# install youtube-dl separately
+wget https://yt-dl.org/latest -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
 
 # Adopting the configs
 echo "02 - Changing some configs"
