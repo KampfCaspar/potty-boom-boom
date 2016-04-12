@@ -22,12 +22,12 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 # Adopting the configs
 echo "02 - Changing some configs"
-cp -f /tmp/potty-boom-boom/potty-lightdm.conf /etc/lightdm/lightdm.conf && copies=$((copies + 1 )) && echo " - Installed lightdm.conf for pi-autologin"
+cp -f potty-lightdm.conf /etc/lightdm/lightdm.conf && copies=$((copies + 1 )) && echo " - Installed lightdm.conf for pi-autologin"
 mkdir -p /home/pi/.i3
-cp -f /tmp/potty-boom-boom/potty-i3.conf /home/pi/.i3/config && copies=$((copies + 1 )) && echo " - Installed i3 config, starts the watchdog"
+cp -f potty-i3.conf /home/pi/.i3/config && copies=$((copies + 1 )) && echo " - Installed i3 config, starts the watchdog"
 mkdir -p /home/pi/Potty-Boom-Boom/Files
 chown -R pi:pi /home/pi/Potty-Boom-Boom
-cp -f /tmp/potty-boom-boom/Potty-Boom-Boom-watchdog.sh /home/pi/Potty-Boom-Boom/Potty-Boom-Boom-watchdog.sh && copies=$((copies + 1 )) && echo " - Installed the watchdog, looks for videos and takes a random one for the player"
+cp -f Potty-Boom-Boom-watchdog.sh /home/pi/Potty-Boom-Boom/Potty-Boom-Boom-watchdog.sh && copies=$((copies + 1 )) && echo " - Installed the watchdog, looks for videos and takes a random one for the player"
 chmod +x /home/pi/Potty-Boom-Boom/Potty-Boom-Boom-watchdog.sh && echo " - Watchdog is now executeable"
 
 if [ ${copies} -lt 3 ] ; then
