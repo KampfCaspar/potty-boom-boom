@@ -5,6 +5,13 @@ copies=0
 
 echo "Boom Boom Boom Potty Boom!"
 echo "##########################"
+echo "00 - change raspi config"
+. /usr/bin/raspi-config nonint
+do_expand_rootfs()
+do_change_hostname("pottyboomboom")
+do_memory_split(64)
+do_change_pass
+
 echo "01 - Installing Packages we need"
 
 # Package installations
